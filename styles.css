@@ -1,45 +1,28 @@
-let url = "https://images-api.nasa.gov/search?q=";
-const btn = document.getElementById("btnBuscar");
-const btnBuscar = document.getElementById("inputBuscar");
-const  busqueda = btn.addEventListener("click" , Buscar);
+main {
+    min-height: calc(100vh - 160px);
+  }
 
-async function Buscar () {
-    conte.innerHTML = "";
-    let a = url + btnBuscar.value; 
-    let promesa = await fetch (a);
-    let respuesta = await promesa.json();
-    
-    const {
-        collection: {items}
-    } = respuesta;
+img {
+  height: 231px;
+  object-fit: cover;
+}
 
-    for (const item of items) {
-        const {
-            data: [data],
-            links: [link]
-        } = item;
-        const { title, date_created, description} = data;
-        const {href} = link;
+.card-text {
+  overflow-y: scroll;
+  height: 220px;
+  font-size: 1rem;
+}
 
-        Llenar (title, date_created, description, href);
-    }}
+.card {
+  padding: 0;
+  height: 530px;
+}
 
-function Llenar (a , b, c, d) {
-    let html = "";
+.card-title {
+  padding-bottom: 5px;
+}
 
-        html += `
-            <div class="col-sm-4">
-                <div class="card mb-2">
-                    <img src="${d}" class="card-img-fluid" alt="...">
-                    <div class="card-body">
-                        <p class="card-text"><span>${a}</span><br>${c}</p>
-                        <div class="card-footer">
-                        <small class="text-muted">${b}</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `
-        conte.innerHTML += html;
-
+span {
+  font-size: 1.35rem;
+  font-weight: 600;
 }
